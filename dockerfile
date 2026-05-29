@@ -18,6 +18,13 @@ RUN uv pip install --no-cache-dir -r requirements.txt
 # Stage 2: Final stage
 FROM python:3.13-slim
 
+# Image metadata (OCI labels); markitdown version is the bundled upstream version
+LABEL org.opencontainers.image.title="markitdown-api" \
+      org.opencontainers.image.description="API wrapper around microsoft/markitdown" \
+      org.opencontainers.image.version="0.1.5-1" \
+      org.opencontainers.image.source="https://github.com/dezoito/markitdown-api" \
+      io.markitdown-api.markitdown-version="0.1.5"
+
 # Create a non-root user
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
