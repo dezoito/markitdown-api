@@ -10,7 +10,8 @@ IMAGE_NAME="markitdown-api"
 # Determine the release version used for the image tags.
 # Default to the exact git tag on the current commit (e.g. 0.1.5-1);
 # press Enter to accept it, or type a different value to override.
-DEFAULT_VERSION=$(git describe --tags --exact-match HEAD 2>/dev/null)
+# `|| true` so a missing tag doesn't abort the script under `set -e`
+DEFAULT_VERSION=$(git describe --tags --exact-match HEAD 2>/dev/null) || true
 
 if [ -n "$DEFAULT_VERSION" ]; then
     echo "Found git tag on current commit: $DEFAULT_VERSION"
