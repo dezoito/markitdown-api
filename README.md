@@ -10,6 +10,15 @@ This project is a lightweight REST API server built using FastAPI that receives 
 > [!NOTE]
 > This project uses `uv` for dependency management and multistage Docker builds, significantly reducing build times and final image size.
 
+## Using Pre-built Image
+
+The easiest way to get started is to use the pre-built image from GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/dezoito/markitdown-api:latest
+docker run -d --name markitdown-api -p 8490:8490 ghcr.io/dezoito/markitdown-api:latest
+```
+
 ## Setup Instructions
 
 1. Clone the repository:
