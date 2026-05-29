@@ -128,6 +128,10 @@ with open(file_path, 'rb') as file:
     content = result.get('markdown')
 ```
 
+## Related projects
+
+If you also work with local LLMs, you might find my other project useful: **[Ollama Grid Search](https://github.com/dezoito/ollama-grid-search)** - a desktop app for evaluating and comparing LLMs, prompts, and inference parameters side by side.
+
 ## Acknowledgments
 
 This project was originally based on [elbruno/MarkItDownServer](https://github.com/elbruno/MarkItDownServer) by Bruno Capuano.
