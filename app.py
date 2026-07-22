@@ -3,6 +3,7 @@ import os
 import tempfile
 
 from fastapi import FastAPI, File, UploadFile
+from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import JSONResponse
 from markitdown import MarkItDown
 
@@ -111,7 +112,7 @@ async def process_file(file: UploadFile = File(...)):
             logger.info(f"Temporary file path: {temp_file_path}")
 
         # Convert the file to markdown
-        markdown_content = convert_to_md(temp_file_path)
+        markdown_content = await run_in_threadpool(convert_to_md, temp_file_path)
         logger.info("File converted to markdown successfully")
 
     except Exception as e:
